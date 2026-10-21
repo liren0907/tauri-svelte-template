@@ -1,4 +1,6 @@
 target
+# The desktop shell is a separate crate; the API image must not include it.
+src-tauri
 .env
 Dockerfile
 .dockerignore

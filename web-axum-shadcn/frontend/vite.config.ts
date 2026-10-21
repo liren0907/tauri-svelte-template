@@ -32,9 +32,6 @@ export default defineConfig({
 		proxy: {
 			'/api': API_TARGET,
 			'/healthz': API_TARGET
-		},
-		watch: {
-			ignored: ['**/src-tauri/**']
 		}
 	}
 });

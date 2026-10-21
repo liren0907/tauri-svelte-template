@@ -88,7 +88,7 @@ A packaged desktop app has no Vite proxy, so point it at a running backend and m
 VITE_API_BASE_URL=https://api.example.com yarn tauri build
 ```
 
-Change `identifier` in `frontend/src-tauri/tauri.conf.json` before shipping.
+Change `identifier` in `backend/src-tauri/tauri.conf.json` before shipping.
 
 ## Commands
 
@@ -110,7 +110,7 @@ Inside `frontend/`, use `yarn run check` for type checking — plain `yarn check
 
 ```
 web-axum-shadcn/
-├── package.json             # forwards commands to frontend/ and backend/
+├── package.json             # forwards commands to frontend/ and backend/; installs the Tauri CLI
 ├── docker/
 │   └── docker-compose.yaml  # backend + frontend containers
 ├── backend/                 # Axum service (standalone Cargo project)
@@ -122,7 +122,8 @@ web-axum-shadcn/
 │   │   ├── state.rs         # Note model and in-memory store
 │   │   └── routes/          # health.rs, notes.rs
 │   ├── tests/api.rs         # HTTP tests, no network port needed
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── src-tauri/           # Tauri desktop shell: its own crate, no commands
 └── frontend/                # SvelteKit app
     ├── src/
     │   ├── routes/          # +layout.svelte, +page.svelte (notes), showcase/
@@ -131,7 +132,6 @@ web-axum-shadcn/
     │       ├── components/  # app sidebar, theme toggle, backend status
     │       │   └── ui/      # shadcn-svelte components (yours to edit)
     │       └── nav.ts       # sidebar entries
-    ├── src-tauri/           # desktop shell (no commands)
     ├── vite.config.ts       # SvelteKit config, dev port 1430, /api proxy
     ├── nginx.conf
     └── Dockerfile

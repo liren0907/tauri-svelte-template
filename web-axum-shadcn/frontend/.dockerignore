@@ -1,8 +1,6 @@
 node_modules
 build
 .svelte-kit
-# The desktop shell is not part of the web image (and its target/ is huge).
-src-tauri
 .env
 .env.*
 Dockerfile

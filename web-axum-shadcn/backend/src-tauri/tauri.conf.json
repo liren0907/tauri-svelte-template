@@ -1,13 +1,13 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "web-axum-shadcn",
   "version": "0.1.0",
   "identifier": "com.example.web-axum-shadcn",
   "build": {
-    "frontendDist": "../build",
+    "frontendDist": "../../frontend/build",
     "devUrl": "http://localhost:1430",
-    "beforeDevCommand": "yarn dev:stack",
-    "beforeBuildCommand": "yarn build"
+    "beforeDevCommand": "cd ../frontend && yarn dev:stack",
+    "beforeBuildCommand": "cd ../frontend && yarn build"
   },
   "app": {
     "windows": [

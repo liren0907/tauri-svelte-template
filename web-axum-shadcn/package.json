@@ -1,14 +1,17 @@
 {
 	"name": "web-axum-shadcn",
 	"private": true,
-	"description": "SvelteKit + shadcn-svelte frontend talking to an Axum backend over HTTP. This file only forwards commands to ./frontend and ./backend.",
+	"description": "SvelteKit + shadcn-svelte frontend talking to an Axum backend over HTTP. This file forwards commands to ./frontend and ./backend and installs the Tauri CLI for ./backend/src-tauri.",
 	"scripts": {
 		"postinstall": "cd frontend && yarn install",
 		"dev": "cd frontend && yarn dev:stack",
-		"tauri": "cd frontend && yarn tauri",
+		"tauri": "cd backend && tauri",
 		"build": "cd frontend && yarn build",
 		"typecheck": "cd frontend && yarn run check",
 		"test": "cd backend && cargo test",
 		"docker": "docker compose -f docker/docker-compose.yaml up --build"
+	},
+	"devDependencies": {
+		"@tauri-apps/cli": "~2.12"
 	}
 }

@@ -1,4 +1,4 @@
-# Created by `yarn install` at this level (the real dependencies live in frontend/)
+# Only the Tauri CLI is installed at this level; the frontend dependencies live in frontend/
 node_modules/
 
 # OS
