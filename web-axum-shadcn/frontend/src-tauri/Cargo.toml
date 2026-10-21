@@ -1,0 +1,18 @@
+[package]
+name = "web-axum-shadcn-desktop"
+version = "0.1.0"
+description = "Desktop shell for the web-axum-shadcn template — the UI talks to the Axum backend over HTTP"
+edition = "2024"
+rust-version = "1.90"
+
+[lib]
+# Explicit lib name avoids a name clash with the binary on Windows.
+name = "web_axum_shadcn_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.7", features = [] }
+
+[dependencies]
+# Keep the minor version in step with @tauri-apps/cli in ../package.json.
+tauri = { version = "~2.12", features = [] }

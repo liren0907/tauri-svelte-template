@@ -1,0 +1,30 @@
+# Run the whole stack in containers. From web-axum-shadcn/:
+#   yarn docker
+# or from this folder:
+#   docker compose up --build
+# then open http://localhost:3000
+
+# Pin the project name; otherwise Compose would use this folder's name ("docker")
+# for containers, networks and image tags.
+name: web-axum-shadcn
+
+services:
+  backend:
+    build: ../backend
+    environment:
+      RUST_LOG: info
+      # Browsers reach the API only through the frontend's nginx (same origin),
+      # so no cross-origin callers need to be allowed.
+      CORS_ALLOWED_ORIGINS: ""
+    # Reachable from the frontend container only; not published on the host.
+    expose:
+      - "8080"
+    restart: unless-stopped
+
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

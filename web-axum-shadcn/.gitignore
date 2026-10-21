@@ -1,0 +1,6 @@
+# Created by `yarn install` at this level (the real dependencies live in frontend/)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

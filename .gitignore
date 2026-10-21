@@ -1,39 +1,27 @@
+# Shared ignore rules for the whole repo.
+# Each template keeps its own .gitignore so it still works when copied out on its own.
+
+# OS
 .DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
-.env
-.env.*
-!.env.example
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
-
-# Other
-docs/dev/
-deprecated/
-stored/src-tauri/tests/resources/
-stored/
-references/
-reference/
-
-# temp files
-tmp/
-
-
-# Agentic AI related
-.agent/
 
 # IDE
 .vscode/
+
+# Agentic AI related
 .claude/
+.agent/
 
-# Tauri
-src-tauri/target/
-src-tauri/gen/schemas/
-src-tauri/WixTools/
-src-tauri/*.log
-
-# Mock data
+# Local working folders
+docs/dev/
+deprecated/
+stored/
+references/
+reference/
+tmp/
 mock_data/
 
+# Safety net for every template
+node_modules/
+.env
+.env.*
+!.env.example
